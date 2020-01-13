@@ -10,7 +10,7 @@ aims:
 
 -Insert M1 before first G1 after M6
 - on toolchange
-- after drilling
+- after drilling for hold down
 
 -Move to first X,Y before spinning up spindle
 -Return tool and return to park at finish option

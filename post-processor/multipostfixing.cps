@@ -59,7 +59,7 @@ useM6: {title:"Use M6", description:"Specifies if M6 should be used for tool cha
 // user-defined properties
 properties = {
 //  beep: false,
-  sustainVac: false,
+  vacuumUse: "default",
   useDusty: true,
   optionalStop: "operation" // optional stop default to true
 
@@ -71,7 +71,12 @@ properties = {
 propertyDefinitions = {
 //  beep: {title:"Beep", description:"Boop.",type:"boolean"},
   
-  sustainVac: {title:"Keep vacuum after job", description:"Keeps the vacuum pump on after completing a program", type:"boolean"},
+  vacuumUse: {title:"Auto vacuum table policy", description:"Options for automatic vacuum table behaviour", type:"enum",
+    values:[
+      {title:"Do not use", id:"off"},
+      {title:"On for duration of job", id:"default"},
+      {title:"Sustain after job completion", id:"sustain"}]
+  },
   useDusty: {title:"Use dust extraction", description:"Runs the dust extraction for the duration of a program", type:"boolean"},
   optionalStop: {title:"Insert optional stops", description:"Inserts optional stops into the gcode based on option choice.", type: "enum",
     values:[
@@ -280,6 +285,18 @@ function onOpen() {
     }
   }
 
+  // Turn vacuum on
+  if (vacuumUse != "off") {
+    writeComment("(Turn vacuum on)")
+    writeBlock(mFormat.format(808));
+  }
+
+  // Turn dusty on
+  if (useDusty) {
+    writeComment("(Turn dusty on)")
+    writeBlock(mFormat.format(810));
+  }
+  
   // absolute coordinates and feed per min
   writeBlock(gAbsIncModal.format(90));
   
@@ -318,11 +335,6 @@ function onSection() {
   var insertToolCall = isFirstSection() ||
     currentSection.getForceToolChange && currentSection.getForceToolChange() ||
     (tool.number != getPreviousSection().getTool().number);
-  
-  // Turn vacuum on
-  if (isFirstSection()) {
-    writeBlock(mFormat.format(808));
-  }
 
   if (!isFirstSection() && (properties.optionalStop=="operation") ) {
       onCommand(COMMAND_OPTIONAL_STOP);
@@ -826,6 +838,19 @@ function onClose() {
 
   onImpliedCommand(COMMAND_END);
   onImpliedCommand(COMMAND_STOP_SPINDLE);
+  
+  // Turn vacuum off
+  if (vacuumUse == "default") {
+    writeComment("(Turn vacuum off)")
+    writeBlock(mFormat.format(809));
+  }
+  
+  // Turn dusty off
+  if (useDusty) {
+    writeComment("(Turn dusty off)")
+    writeBlock(mFormat.format(811));
+  }
+  
   writeBlock(mFormat.format(30)); // stop program, spindle stop, coolant off
   writeln("%");
 }
