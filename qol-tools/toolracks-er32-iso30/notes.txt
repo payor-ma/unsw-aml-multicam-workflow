@@ -1,0 +1,1 @@
+For storing tools set up in holders in the same orientation as the linear ATC and spindle.  It is simpler to store the tools with the cutter facing upwards, however in the past this has lead to some brain farts when loading the linear ATC.

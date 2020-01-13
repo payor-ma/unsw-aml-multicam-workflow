@@ -1,0 +1,10 @@
+Equipment settings defined in the *MachineAdjustableParams.xml files on the multicam hard drives manage the use of relay controlled dust extraction, vacuum pump and mister.
+
+On our SL2515v, a vacuum and dust extraction relay are installed, there is no mister relay installed.
+On our M2412, there are no relays installed for external equipment.
+
+Mode fields under equipment settings define their use by the machines.
+By trial and error, I hypothesise that for a parameter of format <*Mode>X</*Mode>, X can take on the following values:
+'0' : Unused / no relay installed
+'1' : Usable but not automatically triggered by the machine.  Can be activated with M-Codes by controller / when executing an nc file.
+'2' : Automatically triggered by the machine to turn on prior to executing an nc file and turn off at the completion of the file's execution.  Also able to be controlled through M-Codes.
