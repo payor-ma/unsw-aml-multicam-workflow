@@ -1,0 +1,133 @@
+M808 - Turn on Vacuum 1.  Requires Vacuum manifold board.  Address 113.
+M809 - Turn off Vacuum 1.  Requires Vacuum manifold board.  Address 113.
+M810 - Turn on Dust Collector.  Requires Vacuum manifold board.  Address 113.
+M811 - Turn off Dust Collector.  Requires Vacuum manifold board.  Address 113.
+M830 - ZTouch routine -> DOESNT MOVE TO SENSOR IN X/Y
+
+The following M Codes are available on A2MC version 6.505 MCS Ship
+-----------------------------------------------------------
+M0 - Programmed Pause 0.  This will pause the program and wait for operator to restart it.
+M1 - Programmed Pause 1.  This will pause the program and wait for operator to restart it.
+M2 - End Program Parsing. This end the NC Program.
+M3 - Spindle on Forward or Device on.  Spindle speed specified by S command.  For example M3S2000
+M4 - Spindle on Reverse.  This will not turn on any other device.  Spindle speed specified by S command.  For example M3S2000
+M5 - Spindle or Device off.
+M6 - Change tool.  This code must have a T command to specify tool in the same line.  For example M6T5
+M7 - Turn Mister ON.  This activates an output on the carriage board for the mister.
+M8 - Turn Mister ON.  This activates an output on the carriage board for the mister.
+M9 - Turn Mister OFF.
+M30 - End Program Parsing. This end the NC Program.  This is the most commonly used line for the end of all NC programs.
+M51 - turn off output activate 4 on carriage board 1.  Address 65.
+M52 - turn on output activate 4 on carriage board 1.  Address 65.
+M53 - turn off output activate 2 and 3 on carriage board 1.  Address 65.
+M54 - turn on output activate 3 on carriage board 1.  Address 65.
+M55 - turn on output activate 2 on carriage board 1.  Address 65.
+M60 - End Program Parsing. This end the NC Program.
+M64 - Cycle Material Pusher.
+M70 - Multisheets.  This M code is in between sheets in a multisheet job.
+M98 - Jump to Subroutine. P command specifies subroutine number. L command is optional specifies repeats.  Subroutines require O numbers.
+M99 - Return from Subroutine.  Indicates end of a subroutine so parsing can return.
+-----------------------------------------------------------
+    These are M codes related to AVS and vision system controls
+M251 - Move camera down.  This done with an output on the carriage board.  This is output 7 on the carriage board.
+M252 - Move camera up.  This done with an output on the carriage board. This is output 7 on the carriage board
+M260 - Enable AVS location
+M261 - Disable AVS location
+M262 - Calculate AVS transposition with a single dot
+M263 - Calculate AVS transposition with dual dots
+M264 - Calculate AVS transposition with tripe dots
+M270 - Print Text line using Linx printer
+M271 - Trigger print on Linx printer
+-----------------------------------------------------------
+    These M codes access IO ouputs on the manifold board.  These are general purpose IO outputs
+M400 - Turn ON output V5 on modbus board address 99, or if 103 installed on 103 instead.
+M401 - Turn OFF output V5 on modbus board address 99, or if 103 installed on 103 instead.
+M402 - Turn ON output V6 on modbus board address 99, or if 103 installed on 103 instead.
+M403 - Turn OFF output V6 on modbus board address 99, or if 103 installed on 103 instead.
+M404 - Turn ON output V7 on modbus board address 99, or if 103 installed on 103 instead.
+M405 - Turn OFF output V7 on modbus board address 99, or if 103 installed on 103 instead.
+M406 - Turn ON output V8 on modbus board address 99, or if 103 installed on 103 instead.
+M407 - Turn OFF output V8 on modbus board address 99, or if 103 installed on 103 instead.
+M408 - Turn ON output V9 on modbus board address 99, or if 103 installed on 103 instead.
+M409 - Turn OFF output V9 on modbus board address 99, or if 103 installed on 103 instead.
+M410 - Turn ON output V10 on modbus board address 99, or if 103 installed on 103 instead.
+M411 - Turn OFF output V10 on modbus board address 99, or if 103 installed on 103 instead.
+M412 - Turn ON output V11 on modbus board address 99, or if 103 installed on 103 instead.
+M413 - Turn OFF output V11 on modbus board address 99, or if 103 installed on 103 instead.
+M414 - Turn ON output V12 on modbus board address 99, or if 103 installed on 103 instead.
+M415 - Turn OFF output V12 on modbus board address 99, or if 103 installed on 103 instead.
+-----------------------------------------------------------
+    These M codes access IO ouputs on the carraige board.  These are general purpose IO outputs
+M416 - Turn ON output 8 on carriage board address 65
+M417 - Turn OFF output 8 on carriage board address 65
+M418 - Turn ON output 9 on carriage board address 65
+M419 - Turn OFF output 9 on carriage board address 65
+M420 - Turn ON output 10 on carriage board address 65
+M421 - Turn OFF output 10 on carriage board address 65
+M422 - Turn ON output 11 on carriage board address 65
+M423 - Turn OFF output 11 on carriage board address 65
+M424 - Turn ON output 12 on carriage board address 65, this output is also operated by T800-T809
+M425 - Turn OFF output 12 on carriage board address 65, this output is also operated by T800-T809
+M426 - Turn ON output 13 on carriage board address 65
+M427 - Turn OFF output 13 on carriage board address 65
+M428 - Turn ON output 14 on carriage board address 65
+M429 - Turn OFF output 14 on carriage board address 65
+M430 - Turn ON output 15 on carriage board address 65
+M431 - Turn OFF output 15 on carriage board address 65
+-----------------------------------------------------------
+    These M codes access IO ouputs on the manifold board.  These are general purpose IO outputs
+M432 - Turn ON output V5 on modbus board address 97, or if 101 installed on 101 instead.
+M433 - Turn OFF output V5 on modbus board address 97, or if 101 installed on 101 instead.
+M434 - Turn ON output V6 on modbus board address 97, or if 101 installed on 101 instead.
+M435 - Turn OFF output V6 on modbus board address 97, or if 101 installed on 101 instead.
+M436 - Turn ON output V7 on modbus board address 97, or if 101 installed on 101 instead.
+M437- Turn OFF output V7 on modbus board address 97, or if 101 installed on 101 instead.
+M438- Turn ON output V8 on modbus board address 97, or if 101 installed on 101 instead.
+M439- Turn OFF output V8 on modbus board address 97, or if 101 installed on 101 instead.
+M440 - Turn ON output V9 on modbus board address 97, or if 101 installed on 101 instead.
+M441 - Turn OFF output V9 on modbus board address 97, or if 101 installed on 101 instead.
+M442 - Turn ON output V10 on modbus board address 97, or if 101 installed on 101 instead.
+M443 - Turn OFF output V10 on modbus board address 97, or if 101 installed on 101 instead.
+M444 - Turn ON output V11 on modbus board address 97, or if 101 installed on 101 instead.
+M445 - Turn OFF output V11 on modbus board address 97, or if 101 installed on 101 instead.
+M446 - Turn ON output V12 on modbus board address 97, or if 101 installed on 101 instead.
+M447 - Turn OFF output V12 on modbus board address 97, or if 101 installed on 101 instead.
+-----------------------------------------------------------
+    These M codes access IO ouputs on the manifold board.  These are general purpose IO outputs
+M448 - Turn ON output V5 on modbus board address 98
+M449 - Turn OFF output V5 on modbus board address 98
+M450 - Turn ON output V6 on modbus board address 98
+M451 - Turn OFF output V6 on modbus board address 98
+M452 - Turn ON output V7 on modbus board address 98
+M453 - Turn OFF output V7 on modbus board address 98
+M454 - Turn ON output V8 on modbus board address 98
+M455 - Turn OFF output V8 on modbus board address 98
+M456 - Turn ON output V9 on modbus board address 98
+M457 - Turn OFF output V9 on modbus board address 98
+M458 - Turn ON output V10 on modbus board address 98
+M459 - Turn OFF output V10 on modbus board address 98
+M460 - Turn ON output V11 on modbus board address 98
+M461 - Turn OFF output V11 on modbus board address 98
+M462 - Turn ON output V12 on modbus board address 98
+M463 - Turn OFF output V12 on modbus board address 98
+-----------------------------------------------------------
+    The 800 series M codes are for A2MC peripheral devices as follows.
+M800 - This fires a pneumatically driven drill from the carriage board.  Will run the whole drill cycle on current tool number.
+M801 - Activate (down) air tool such as a pen from carriage board.  Activates current tool number.
+M802 - De-Activate (up) air tool such as a pen from carriage board.  De-Activates current tool number.
+M803 - Switches dust manifold to current tool position.  Normally this is automatic so is rarely used.
+M808 - Turn on Vacuum 1.  Requires Vacuum manifold board.  Address 113.
+M809 - Turn off Vacuum 1.  Requires Vacuum manifold board.  Address 113.
+M810 - Turn on Dust Collector.  Requires Vacuum manifold board.  Address 113.
+M811 - Turn off Dust Collector.  Requires Vacuum manifold board.  Address 113.
+M812 - Turn Gang Drill On.  Gang drill modbus board is required.  Gang drill must be current tool.
+M813 - Turn Gang Drill Off.  Gang drill modbus board is required.  Gang drill must be current tool.
+M814 - Turn on Vacuum 2.  Requires Vacuum manifold board.  Address 113.
+M815 - Turn off Vacuum 2.  Requires Vacuum manifold board.  Address 113.
+M820 - Turn dispenser nozzle on.
+M821 - Turn dispenser nozzle off.
+M822 - Fire the tamper for the drader weld gun.
+M823 - Force current tangential knife to reset.
+M830 - ZTouch routine.
+M831 - Move Up from S-mouse seek.
+M888 - Read servo motors position.
