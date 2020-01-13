@@ -286,13 +286,13 @@ function onOpen() {
   }
 
   // Turn vacuum on
-  if (vacuumUse != "off") {
+  if (properties.vacuumUse != "off") {
     writeComment("(Turn vacuum on)")
     writeBlock(mFormat.format(808));
   }
 
   // Turn dusty on
-  if (useDusty) {
+  if (properties.useDusty) {
     writeComment("(Turn dusty on)")
     writeBlock(mFormat.format(810));
   }
@@ -840,13 +840,13 @@ function onClose() {
   onImpliedCommand(COMMAND_STOP_SPINDLE);
   
   // Turn vacuum off
-  if (vacuumUse == "default") {
+  if (properties.vacuumUse == "default") {
     writeComment("(Turn vacuum off)")
     writeBlock(mFormat.format(809));
   }
   
   // Turn dusty off
-  if (useDusty) {
+  if (properties.useDusty) {
     writeComment("(Turn dusty off)")
     writeBlock(mFormat.format(811));
   }
